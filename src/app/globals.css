@@ -1,0 +1,105 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 12 100% 59%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 12 100% 59%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 12 100% 59%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 0 28% 8% / 0.8; 
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 12 100% 59%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 48% 12%; 
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 48% 10%;
+    --muted-foreground: 215 11% 65%;
+    --accent: 12 100% 59%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 43% 29% / 0.4;
+    --input: 0 43% 20%;
+    --ring: 12 100% 59%;
+  }
+}
+
+@layer base {
+  * { 
+    @apply border-border; 
+    -webkit-tap-highlight-color: transparent;
+  }
+  body { 
+    @apply bg-background text-foreground antialiased; 
+    font-family: var(--font-orbitron), sans-serif; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    /* Force GPU Acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+.glass-card {
+  @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-2xl;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+#background-neural {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: radial-gradient(circle at 50% 50%, #1a0605 0%, #0a0a0c 100%);
+  transform: translateZ(0);
+}
+
+.neural-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(12, 100% , 59%, 0.04) 0, transparent 40%), 
+    radial-gradient(at 100% 0%, hsla(12, 100%, 59%, 0.04) 0, transparent 40%);
+  filter: blur(60px);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.neural-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -8;
+  background-image: 
+    linear-gradient(to right, hsla(12, 100%, 59%, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, hsla(12, 100%, 59%, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+  transform: translateZ(0);
+}

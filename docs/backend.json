@@ -1,0 +1,52 @@
+
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Extended user profile with progression data.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "xp": { "type": "number", "description": "Total experience points." },
+        "unlockedFeatures": { "type": "array", "items": { "type": "string" } },
+        "quests": {
+          "type": "object",
+          "properties": {
+            "notesCreated": { "type": "number", "default": 0 },
+            "terminalDoubts": { "type": "number", "default": 0 },
+            "newsRead": { "type": "number", "default": 0 },
+            "testsAttempted": { "type": "number", "default": 0 },
+            "codeRuns": { "type": "number", "default": 0 }
+          }
+        }
+      }
+    },
+    "Schedule": {
+      "title": "Daily Schedule",
+      "description": "A collection of time-blocked tasks for a specific day.",
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "object",
+          "description": "Tasks keyed by hour (e.g., '08:00')"
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["email", "google", "anonymous"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "#/entities/User",
+      "description": "User profile and progression data."
+    },
+    "/users/{userId}/schedules/{date}": {
+      "schema": "#/entities/Schedule",
+      "description": "Daily time-block schedules."
+    }
+  }
+}

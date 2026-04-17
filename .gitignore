@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+functions/node_modules/
+
+# Firebase local files and logs
+.firebase/
+firebase-debug.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+public/build/
+dist/
+
+# IDE and OS files
+.vscode/
+.DS_Store
+
+# Other tools
+genkit/
+node_modules
+
+
+.next/
+next-env.d.ts
